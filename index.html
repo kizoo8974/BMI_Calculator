@@ -9,7 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form onsubmit="onSubmit(event)">
+    <form onsubmit="onSubmit(event)" onreset="document.getElementById('res').style.display = 'none'">
         <div class="row">
             <div class="form-inp">
                 <label for="w">
@@ -21,9 +21,25 @@
                 <label for="h">
                     Height (m)
                 </label>
-                <input class="inp" type="number" placeholder="kg" name="h" id="h">
+                <input class="inp" type="number" step="0.01" placeholder="m" name="h" id="h" min="0.5">
             </div>
             <button type="submit" class="btn" >Result</button>
+        </div>
+        <div id="res">
+            <div >
+                <meter style="width: 100%;" min="10" max="30" optimum="22" low="18.5" high="25" id="meter"></meter>
+            </div>
+            <div class="res-text">
+                <div>
+                    You BMI is  <span id="bmi"></span>
+                </div>
+                <div>
+                    <span id="state"></span>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <button type="reset" class="btn">reset</button>
+            </div>
         </div>
     </form>
     
